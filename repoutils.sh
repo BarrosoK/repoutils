@@ -252,7 +252,7 @@ display_help() {
    fi
  else
    # No changes
-   echo "Coucou Goerig"
+   echo "Coucou GOerig"
  fi
 
  if [ "$#" -lt 1 ]; then
