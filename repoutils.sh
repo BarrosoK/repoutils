@@ -237,32 +237,36 @@ display_help() {
 
  echo -e "$(tput reset)$(get_font 1)Login :$reset $(get_verbose 2)$mail$reset"
 
-if [ $"1" = "-update" ];then
- if [ -f "/home/repoutils/repoutils.sh" ]; then
-  sudo git fetch origin
-  reslog=$(git log HEAD..origin/master --oneline)
-  if [[ "${reslog}" != "" ]] ; then
-   # Changes
-   echo "$(get_verbose 2)New update available ! $reset"
-   sudo git --git-dir=/home/repoutils/.git --work-tree=/home/repoutils fetch --all
-   sudo git --git-dir=/home/repoutils/.git --work-tree=/home/repoutils reset --hard origin/master
-   sudo git --git-dir=/home/repoutils/.git --work-tree=/home/repoutils pull origin master
-   if [ $? -eq 0 ]; then
-     echo "$(get_verbose 3)Updated !$reset"
-   else
-     echo "$(get_verbose 2)Update failed !$reset"
-   fi
- else
-   # No changes
-   echo "Coucou GOerig"
+
+
+if [ "$1" = "-update" ]; then
+  if [ -f "/home/repoutils/repoutils.sh" ]; then
+   sudo git fetch origin
+   reslog=$(git log HEAD..origin/master --oneline)
+   if [[ "${reslog}" != "" ]] ; then
+    # Changes
+    echo "$(get_verbose 2)New update available ! $reset"
+    sudo git --git-dir=/home/repoutils/.git --work-tree=/home/repoutils fetch --all
+    sudo git --git-dir=/home/repoutils/.git --work-tree=/home/repoutils reset --hard origin/master
+    sudo git --git-dir=/home/repoutils/.git --work-tree=/home/repoutils pull origin master
+    if [ $? -eq 0 ]; then
+      echo "$(get_verbose 3)Updated !$reset"
+    else
+      echo "$(get_verbose 2)Update failed !$reset"
+    fi
+  else
+    # No changes
+    echo "Coucou GOerig"
+  fi
  fi
+  exit 0
+fi
 
  if [ "$#" -lt 1 ]; then
     display_help
     exit 0
  fi
-fi
-fi
+
 
  #CHANGE LOGIN
  if [ "$1" = "-login" ]; then
@@ -476,7 +480,7 @@ if [ "$1" = "--install" ]; then
     exit 0
 fi
 
-# Git part
+# Git part rfgrege
 if [ "$1" = "-push" ]
 then
     clean_repo
