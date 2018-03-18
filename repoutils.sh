@@ -41,6 +41,11 @@ fi
 
 pwd=$(echo -n "$(echo -n "$clearpwd" | sha512sum )" | rev | cut -c 4- | rev)
 
+
+
+
+
+
 header="PEDRIIIITOOOO !$reset"
 #$1 = project name
 get_makefile(){
@@ -229,12 +234,24 @@ display_help() {
 
 ##Start
 
+
+
  echo -e "$(tput reset)$(get_font 1)Login :$reset $(get_verbose 2)$mail$reset\n"
+
+
+ if [[ `git status --porcelain` ]]; then
+   # Changes
+   echo "CHANGE"
+ else
+   echo "NO CHANGE"
+   # No changes
+ fi
 
  if [ "$#" -lt 1 ]; then
     display_help
     exit 0
  fi
+
 
  #CHANGE LOGIN
  if [ "$1" = "-login" ]; then
