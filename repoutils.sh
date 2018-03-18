@@ -252,7 +252,7 @@ display_help() {
    fi
  else
    # No changes
-   echo "$(get_verbose 5)Lastest version"
+   echo "$(get_verbose 5)Lastest version$reset"
  fi
 
  if [ "$#" -lt 1 ]; then
