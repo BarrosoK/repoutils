@@ -440,12 +440,12 @@ fi
 # INSTALL
 if [ "$1" = "--install" ]; then
     name="$(echo $0 | cut -c 3-)";
-
     #COPY TO HOME
-    if [ -f "/home/repo.sh" ]; then
+    if [ -f "/home/repoutils/repoutils.sh" ]; then
         echo $(get_verbose 1)"You already have the script in your /home$reset"
     else
-        sudo cp $0 /home/repo.sh
+        https://github.com/BarrosoK/repoutils.git
+        sudo mv repoutils /home/
     fi
     read -p $(get_verbose 2)"Alias name : $reset$(get_verbose 3)" alias
     #ZSH
