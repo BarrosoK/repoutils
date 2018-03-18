@@ -242,9 +242,9 @@ display_help() {
  if [[ `git --git-dir=/home/repoutils/.git --work-tree=/home/repoutils status --porcelain` ]]; then
    # Changes
    echo "$(get_verbose 2)New update available ! $reset"
-   sudo git fetch --all
-   sudo git reset --hard origin/master
-   sudo git pull origin master
+   sudo git --git-dir=/home/repoutils/.git --work-tree=/home/repoutils fetch --all
+   sudo git --git-dir=/home/repoutils/.git --work-tree=/home/repoutils reset --hard origin/master
+   sudo git --git-dir=/home/repoutils/.git --work-tree=/home/repoutils pull origin master
    if [ $? -eq 0 ]; then
      echo "$(get_verbose 3)Updated !$reset"
    else
