@@ -484,7 +484,7 @@ then
         echo $(get_font 1) "Push All $reset"
         git add .
     else
-        read -e -p "Files to push: " files
+        read -e -p "Files to push : " files
         git add $files
     fi
     if [ ! $? -eq 0 ]; then
