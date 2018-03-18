@@ -236,21 +236,21 @@ display_help() {
 
 
 
- echo -e "$(tput reset)$(get_font 1)Login :$reset $(get_verbose 2)$mail$reset\n"
+ echo -e "$(tput reset)$(get_font 1)Login :$reset $(get_verbose 2)$mail$reset"
 
 
  if [[ `git status --porcelain` ]]; then
    # Changes
    echo "$(get_verbose 2)New update available ! $reset"
-   git clone https://github.com/BarrosoK/repoutils.git
+   git pull
    if [ $? -eq 0 ]; then
      echo "$(get_verbose 3)Updated !$reset"
    else
      echo "$(get_verbose 2)Update failed !$reset"
    fi
  else
-   echo "NO CHANGE"
    # No changes
+   echo "Lastest version"
  fi
 
  if [ "$#" -lt 1 ]; then
