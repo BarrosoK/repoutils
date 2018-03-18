@@ -252,7 +252,7 @@ display_help() {
    fi
  else
    # No changes
-   echo "$(get_verbose 5)Lastest version$reset"
+   echo "Coucou goerig"
  fi
 
  if [ "$#" -lt 1 ]; then
