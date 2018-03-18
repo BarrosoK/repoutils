@@ -256,7 +256,7 @@ if [ "$1" = "-update" ]; then
     fi
   else
     # No changes
-    echo "Coucou GOerig"
+    echo "$(get_verbose 2)No updates available$reset"
   fi
  fi
   exit 0
