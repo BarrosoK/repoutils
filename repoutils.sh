@@ -216,7 +216,7 @@ clone_repo() {
 }
 
 display_help() {
-    echo -e "Usage : \t[ -clean ]
+    echo -e "eUsage : \t[ -clean ]
     \t\t[ -norme < --install > ]
     \t\t[ -push < --all] > ] (clean the repo)
     \t\t[ -create [ repository ] < --clone > ]
@@ -242,7 +242,9 @@ display_help() {
  if [[ `git status --porcelain` ]]; then
    # Changes
    echo "$(get_verbose 2)New update available ! $reset"
-   git pull
+   git fetch --all
+   git reset --hard origin/master
+   git pull origin master
    if [ $? -eq 0 ]; then
      echo "$(get_verbose 3)Updated !$reset"
    else
