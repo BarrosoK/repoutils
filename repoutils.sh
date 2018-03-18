@@ -238,7 +238,7 @@ display_help() {
 
  echo -e "$(tput reset)$(get_font 1)Login :$reset $(get_verbose 2)$mail$reset"
 
-
+ if [ -f "/home/repoutils/repoutils.sh" ]; then
  if [[ `git --git-dir=/home/repoutils/.git --work-tree=/home/repoutils status --porcelain` ]]; then
    # Changes
    echo "$(get_verbose 2)New update available ! $reset"
@@ -259,6 +259,7 @@ display_help() {
     display_help
     exit 0
  fi
+fi
 
 
  #CHANGE LOGIN
@@ -444,7 +445,7 @@ if [ "$1" = "--install" ]; then
     if [ -f "/home/repoutils/repoutils.sh" ]; then
         echo $(get_verbose 1)"You already have the script in your /home$reset"
     else
-        https://github.com/BarrosoK/repoutils.git
+        git clone https://github.com/BarrosoK/repoutils.git
         sudo mv repoutils /home/
     fi
     read -p $(get_verbose 2)"Alias name : $reset$(get_verbose 3)" alias
