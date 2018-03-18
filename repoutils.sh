@@ -216,7 +216,7 @@ clone_repo() {
 }
 
 display_help() {
-    echo -e "eUsage : \t[ -clean ]
+    echo -e "Usage : \t[ -clean ]
     \t\t[ -norme < --install > ]
     \t\t[ -push < --all] > ] (clean the repo)
     \t\t[ -create [ repository ] < --clone > ]
@@ -242,9 +242,9 @@ display_help() {
  if [[ `git --git-dir=/home/repoutils/.git --work-tree=/home/repoutils status --porcelain` ]]; then
    # Changes
    echo "$(get_verbose 2)New update available ! $reset"
-   git fetch --all
-   git reset --hard origin/master
-   git pull origin master
+   sudo git fetch --all
+   sudo git reset --hard origin/master
+   sudo git pull origin master
    if [ $? -eq 0 ]; then
      echo "$(get_verbose 3)Updated !$reset"
    else
@@ -454,7 +454,7 @@ if [ "$1" = "--install" ]; then
         if [ $? -eq 0 ]; then
             echo $(get_verbose 1)"You already have an alias '$alias' in zsh$reset"
         else
-            echo "alias $alias='/home/./repo.sh ' " >> $HOME/.zshrc
+            echo "alias $alias='/home/repoutils/./repoutils.sh ' " >> $HOME/.zshrc
             echo $(get_verbose 2)"Alias '$alias' added to $reset"$(get_verbose 3)"ZSH$reset"
             zsh
         fi
@@ -465,7 +465,7 @@ if [ "$1" = "--install" ]; then
         if [ $? -eq 0 ]; then
             echo $(get_verbose 1)"You already have an alias '$alias' in bash$reset"
         else
-            echo "alias $alias='/home/./repo.sh ' " >> $HOME/.bashrc
+            echo "alias $alias='/home/repoutils/./repoutils.sh ' " >> $HOME/.bashrc
             echo $(get_verbose 2)"Alias '$alias' added to $reset"$(get_verbose 3)"bash$reset"
             bash
         fi
