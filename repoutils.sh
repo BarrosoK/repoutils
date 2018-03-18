@@ -241,8 +241,8 @@ display_help() {
 
 if [ "$1" = "-update" ]; then
   if [ -f "/home/repoutils/repoutils.sh" ]; then
-   sudo git fetch origin
-   reslog=$(git log HEAD..origin/master --oneline)
+   sudo git --git-dir=/home/repoutils/.git --work-tree=/home/repoutils fetch origin
+   reslog=$(sudo git --git-dir=/home/repoutils/.git --work-tree=/home/repoutils log HEAD..origin/master --oneline)
    if [[ "${reslog}" != "" ]] ; then
     # Changes
     echo "$(get_verbose 2)New update available ! $reset"
@@ -256,7 +256,7 @@ if [ "$1" = "-update" ]; then
     fi
   else
     # No changes
-    echo "$(get_verbose 2)No updates available$reset"
+    echo "Coucou GOerig"
   fi
  fi
   exit 0
@@ -480,7 +480,7 @@ if [ "$1" = "--install" ]; then
     exit 0
 fi
 
-# Git part rfgrege
+# Git part
 if [ "$1" = "-push" ]
 then
     clean_repo
