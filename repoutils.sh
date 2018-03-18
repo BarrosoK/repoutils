@@ -237,6 +237,7 @@ display_help() {
 
  echo -e "$(tput reset)$(get_font 1)Login :$reset $(get_verbose 2)$mail$reset"
 
+if [ $"1" = "-update" ];then
  if [ -f "/home/repoutils/repoutils.sh" ]; then
   sudo git fetch origin
   reslog=$(git log HEAD..origin/master --oneline)
@@ -261,7 +262,7 @@ display_help() {
     exit 0
  fi
 fi
-
+fi
 
  #CHANGE LOGIN
  if [ "$1" = "-login" ]; then
