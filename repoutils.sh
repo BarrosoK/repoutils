@@ -238,7 +238,7 @@ display_help() {
  echo -e "$(tput reset)$(get_font 1)Login :$reset $(get_verbose 2)$mail$reset"
 
  if [ -f "/home/repoutils/repoutils.sh" ]; then
-   git fetch origin
+  sudo git fetch origin
   reslog=$(git log HEAD..origin/master --oneline)
   if [[ "${reslog}" != "" ]] ; then
    # Changes
