@@ -252,6 +252,7 @@ display_help() {
    fi
  else
    # No changes
+   echo "Lastest version"
  fi
 
  if [ "$#" -lt 1 ]; then
