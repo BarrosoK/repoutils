@@ -239,7 +239,6 @@ display_help() {
  echo -e "$(tput reset)$(get_font 1)Login :$reset $(get_verbose 2)$mail$reset"
 
  if [ -f "/home/repoutils/repoutils.sh" ]; then
- sudo git pull >> /dev/null
  if [[ `git --git-dir=/home/repoutils/.git --work-tree=/home/repoutils status --porcelain` ]]; then
    # Changes
    echo "$(get_verbose 2)New update available ! $reset"
