@@ -4,6 +4,7 @@ gitignorepath=$PWD/.gitignore
 reset="$(tput sgr0)"
 ignore=(
      "cmake-build-debug"
+     "FDP"
      "CMakeLists.txt"
      ".idea"
      "a.out"
