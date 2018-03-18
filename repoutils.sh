@@ -21,7 +21,8 @@ get_font() {
 get_verbose(){
     echo "$(tput rmso)$(tput setaf $1)"
 }
-#$1 = filef pathf
+
+#$1 = file path
 read_file() {
     echo $(head -n 1 $1)
 }
@@ -251,7 +252,7 @@ display_help() {
    fi
  else
    # No changes
-   echo "Coucou GOerig"
+   echo "Coucou Goerig"
  fi
 
  if [ "$#" -lt 1 ]; then
