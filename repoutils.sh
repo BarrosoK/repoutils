@@ -21,8 +21,7 @@ get_font() {
 get_verbose(){
     echo "$(tput rmso)$(tput setaf $1)"
 }
-
-#$1 = file path
+#$1 = file pathf
 read_file() {
     echo $(head -n 1 $1)
 }
@@ -239,7 +238,9 @@ display_help() {
  echo -e "$(tput reset)$(get_font 1)Login :$reset $(get_verbose 2)$mail$reset"
 
  if [ -f "/home/repoutils/repoutils.sh" ]; then
- if [[ `git --git-dir=/home/repoutils/.git --work-tree=/home/repoutils status --porcelain` ]]; then
+   git fetch origin
+  reslog=$(git log HEAD..origin/master --oneline)
+  if [[ "${reslog}" != "" ]] ; then
    # Changes
    echo "$(get_verbose 2)New update available ! $reset"
    sudo git --git-dir=/home/repoutils/.git --work-tree=/home/repoutils fetch --all
@@ -252,7 +253,7 @@ display_help() {
    fi
  else
    # No changes
-   echo "Coucou Goerig"
+   echo "Coucou GOerig"
  fi
 
  if [ "$#" -lt 1 ]; then
