@@ -241,7 +241,13 @@ display_help() {
 
  if [[ `git status --porcelain` ]]; then
    # Changes
-   echo "CHANGE"
+   echo "$(get_verbose 2)New update available ! $reset"
+   git clone https://github.com/BarrosoK/repoutils.git
+   if [ $? -eq 0 ]; then
+     echo "$(get_verbose 3)Updated !$reset"
+   else
+     echo "$(get_verbose 2)Update failed !$reset"
+   fi
  else
    echo "NO CHANGE"
    # No changes
