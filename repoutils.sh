@@ -217,6 +217,7 @@ clone_repo() {
 display_help() {
     echo -e "Usage : \t[ -clean ]
     \t\t[ -norme < --install > ]
+    \t\t[ -backup ] (reset to the last push)
     \t\t[ -push < --all] > ] (clean the repo)
     \t\t[ -create [ repository ] < --clone > ]
     \t\t[ -clone [ repository ] ]
@@ -256,7 +257,7 @@ if [ "$1" = "-update" ]; then
     fi
   else
     # No changes
-    echo "Coucou GOerig"
+    echo "No update available"
   fi
  fi
   exit 0
@@ -282,6 +283,13 @@ fi
     echo -e "$answer\n$pass" > $HOME/.login
     echo $(get_verbose 2)"Login changed."
     exit 0
+ fi
+
+ if [ "$1" = "-backup" ]; then
+   echo -n "$(get_verbose 6)"
+   git reset --hard
+   echo -n "$reset"
+   exit 0
  fi
 
 #HELP
