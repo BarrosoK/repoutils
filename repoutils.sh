@@ -21,7 +21,7 @@ get_font() {
 get_verbose(){
     echo "$(tput rmso)$(tput setaf $1)"
 }
-#$1 = file pathfd
+#$1 = file pathfdd
 read_file() {
     echo $(head -n 1 $1)
 }
