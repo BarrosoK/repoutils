@@ -46,7 +46,7 @@ pwd=$(echo -n "$(echo -n "$clearpwd" | sha512sum )" | rev | cut -c 4- | rev)
 
 
 header="PEDRIIIITOOOO !$reset"
-#$1 = project name
+#$1 = project namfe
 get_makefile(){
     echo -e "##
 ## EPITECH PROJECT, 2018
